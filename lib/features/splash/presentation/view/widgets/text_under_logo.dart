@@ -1,4 +1,4 @@
-import 'package:chat_app/core/themes/colors.dart';
+import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class TextUnderLogo extends StatelessWidget {
@@ -11,7 +11,7 @@ class TextUnderLogo extends StatelessWidget {
     return const Text(
       "WhatsUp",
       style: TextStyle(
-        color: AppColors.mainColor,
+        color: AppColors.primaryColor,
         fontSize: 32,
         fontWeight: FontWeight.w600,
       ),

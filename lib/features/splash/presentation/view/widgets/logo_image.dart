@@ -10,7 +10,7 @@ class LogoImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Image.asset(
-        Images.logo,
+        AppImages.logo,
       ),
     );
   }

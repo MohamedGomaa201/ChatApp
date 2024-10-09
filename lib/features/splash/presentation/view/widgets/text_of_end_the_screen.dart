@@ -1,3 +1,4 @@
+import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
 
 class TextOfEndTheScreen extends StatelessWidget {
@@ -7,11 +8,9 @@ class TextOfEndTheScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
+    return Text(
       "The best chat app of this century",
-      style: TextStyle(
-        fontSize: 18,
-      ),
+      style: Styles.textStyle18,
     );
   }
 }
