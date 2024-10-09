@@ -1,4 +1,4 @@
-import 'package:chat_app/features/splash/views%20files/splash_screen.dart';
+import 'package:chat_app/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {

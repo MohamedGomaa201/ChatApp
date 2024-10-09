@@ -1,4 +1,4 @@
-import 'package:chat_app/core/constants/asset_images.dart';
+import 'package:chat_app/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 
 class LogoImage extends StatelessWidget {
@@ -10,7 +10,7 @@ class LogoImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Image.asset(
-        logo,
+        Images.logo,
       ),
     );
   }
