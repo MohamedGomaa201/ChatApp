@@ -1,7 +1,5 @@
-import 'package:chat_app/features/home/views/views%20files/home_screen.dart';
-import 'package:chat_app/features/splash/widgets%20files/logo_image.dart';
-import 'package:chat_app/features/splash/widgets%20files/text_of_end_the_screen.dart';
-import 'package:chat_app/features/splash/widgets%20files/text_under_logo.dart';
+import 'package:chat_app/features/home/presentation/view/home_view.dart';
+import 'package:chat_app/features/splash/presentation/view/widgets/splash_body.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,17 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Spacer(flex: 2),
-          LogoImage(),
-          SizedBox(height: 8),
-          TextUnderLogo(),
-          Spacer(flex: 1),
-          TextOfEndTheScreen(),
-          Spacer(flex: 1),
-        ],
-      ),
+      body: SplashBody(),
     );
   }
 }
