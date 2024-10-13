@@ -1,4 +1,4 @@
-import 'package:chat_app/features/home/presentation/view/home_view.dart';
+import 'package:chat_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:chat_app/features/splash/presentation/view/widgets/splash_body.dart';
 import 'package:flutter/material.dart';
 
@@ -16,10 +16,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        Navigator.push(
+        Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
+              builder: (context) => const SignInView(),
             ));
       },
     );
