@@ -13,8 +13,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         textTheme: GoogleFonts.interTextTheme(),
+        useMaterial3: true,
       ),
       home: const SplashScreen(),
     );
