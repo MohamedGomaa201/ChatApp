@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chat_app/core/shared%20widgets/default_text_form.dart';
+import 'package:chat_app/core/shared%20widgets/custom_text_form.dart';
 
 class PasswordField extends StatelessWidget {
   final TextEditingController passwordController;
@@ -14,7 +14,7 @@ class PasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return defaultTextForm(
+    return customTextForm(
       type: TextInputType.visiblePassword,
       controller: passwordController,
       hint: "Your Password",

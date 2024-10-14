@@ -1,7 +1,7 @@
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
-Widget defaultTextForm({
+Widget customTextForm({
   TextEditingController? controller,
   required TextInputType type,
   Function(String)? onChang,

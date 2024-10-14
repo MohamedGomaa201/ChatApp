@@ -1,4 +1,4 @@
-import 'package:chat_app/core/shared%20widgets/default_text_form.dart';
+import 'package:chat_app/core/shared%20widgets/custom_text_form.dart';
 import 'package:flutter/material.dart';
 
 class EmailField extends StatelessWidget {
@@ -6,7 +6,7 @@ class EmailField extends StatelessWidget {
   const EmailField({super.key, required this.emailController});
   @override
   Widget build(BuildContext context) {
-    return defaultTextForm(
+    return customTextForm(
       type: TextInputType.emailAddress,
       controller: emailController,
       label: "Enter Your Email",
