@@ -1,3 +1,6 @@
+import 'package:chat_app/features/auth/presentation/views/widgets/register_row.dart';
+import 'package:chat_app/features/auth/presentation/views/widgets/sign_in_button.dart';
+import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/email_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/logo_widget.dart';
@@ -24,24 +27,38 @@ class _SignInBodyState extends State<SignInBody> {
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(25),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const LogoWidget(),
-              const SignInTitle(),
-              const SizedBox(height: 20),
-              EmailField(emailController: emailController),
-              const SizedBox(height: 20),
-              PasswordField(
-                passwordController: passwordController,
-                isVisible: isVisible,
-                toggleVisibility: () {
-                  setState(() {
-                    isVisible = !isVisible;
-                  });
-                },
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const LogoWidget(),
+                const SignInTitle(),
+                const SizedBox(height: 20),
+                EmailField(emailController: emailController),
+                const SizedBox(height: 20),
+                PasswordField(
+                  passwordController: passwordController,
+                  isVisible: isVisible,
+                  toggleVisibility: () {
+                    setState(() {
+                      isVisible = !isVisible;
+                    });
+                  },
+                ),
+                const SizedBox(height: 50),
+                SignInButton(
+                  emailController: emailController,
+                  passwordController: passwordController,
+                  onSuccess: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
+                  },
+                ),
+                const RegisterRow(),
+              ],
+            ),
           ),
         ),
       ),

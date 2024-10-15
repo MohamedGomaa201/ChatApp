@@ -17,9 +17,10 @@ class PasswordField extends StatelessWidget {
     return customTextForm(
       type: TextInputType.visiblePassword,
       controller: passwordController,
-      hint: "Your Password",
-      label: "Enter Your Password",
+      label: "Password",
+      hint: "Enter Your Password",
       prefix: Icons.lock_outline,
+      isObscure: !isVisible,
       suffix:
           isVisible ? Icons.visibility_outlined : Icons.visibility_off_outlined,
       suffixIconPressed: toggleVisibility,

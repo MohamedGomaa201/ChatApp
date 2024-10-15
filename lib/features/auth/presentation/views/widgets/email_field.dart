@@ -9,8 +9,8 @@ class EmailField extends StatelessWidget {
     return customTextForm(
       type: TextInputType.emailAddress,
       controller: emailController,
-      label: "Enter Your Email",
-      hint: "Your Email",
+      hint: "Enter Your Email",
+      label: "Email",
       prefix: Icons.email_outlined,
       validate: (value) {
         if (value.isEmpty) {
