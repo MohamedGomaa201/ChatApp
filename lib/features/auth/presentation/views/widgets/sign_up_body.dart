@@ -1,8 +1,10 @@
 import 'package:chat_app/features/auth/presentation/views/widgets/email_field.dart';
+import 'package:chat_app/features/auth/presentation/views/widgets/login_row.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/name_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/password_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/phone_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_up_button.dart';
+import 'package:chat_app/features/auth/presentation/views/widgets/sign_up_title.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:chat_app/features/splash/presentation/view/widgets/logo_image.dart';
 import 'package:flutter/material.dart';
@@ -20,41 +22,56 @@ class _SignUpBodyState extends State<SignUpBody> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isVisible = false;
+  GlobalKey<FormState> signUpFormKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const LogoImage(),
-              NameField(nameController: nameController),
-              EmailField(emailController: emailController),
-              PhoneField(phoneController: phoneController),
-              PasswordField(
-                passwordController: passwordController,
-                isVisible: isVisible,
-                toggleVisibility: () {
-                  setState(() {
-                    isVisible = !isVisible;
-                  });
-                },
+        child: Padding(
+          padding: const EdgeInsets.all(25),
+          child: SingleChildScrollView(
+            child: Form(
+              key: signUpFormKey,
+              child: Column(
+                children: [
+                  const LogoImage(),
+                  const SignUpTitle(),
+                  const SizedBox(height: 20),
+                  NameField(nameController: nameController),
+                  const SizedBox(height: 20),
+                  EmailField(emailController: emailController),
+                  const SizedBox(height: 20),
+                  PhoneField(phoneController: phoneController),
+                  const SizedBox(height: 20),
+                  PasswordField(
+                    passwordController: passwordController,
+                    isVisible: isVisible,
+                    toggleVisibility: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 40),
+                  SignUpButton(
+                    signUpFormKey: signUpFormKey,
+                    emailController: emailController,
+                    nameController: nameController,
+                    passwordController: passwordController,
+                    phoneController: phoneController,
+                    onSuccess: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  const LoginRow(),
+                ],
               ),
-              SignUpButton(
-                emailController: emailController,
-                nameController: nameController,
-                passwordController: passwordController,
-                phoneController: phoneController,
-                onSuccess: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomeScreen(),
-                    ),
-                  );
-                },
-              ),
-            ],
+            ),
           ),
         ),
       ),

@@ -20,6 +20,7 @@ class _SignInBodyState extends State<SignInBody> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isVisible = false;
+  GlobalKey<FormState> signInFormKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -28,36 +29,40 @@ class _SignInBodyState extends State<SignInBody> {
         child: Padding(
           padding: const EdgeInsets.all(25),
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const LogoWidget(),
-                const SignInTitle(),
-                const SizedBox(height: 20),
-                EmailField(emailController: emailController),
-                const SizedBox(height: 20),
-                PasswordField(
-                  passwordController: passwordController,
-                  isVisible: isVisible,
-                  toggleVisibility: () {
-                    setState(() {
-                      isVisible = !isVisible;
-                    });
-                  },
-                ),
-                const SizedBox(height: 50),
-                SignInButton(
-                  emailController: emailController,
-                  passwordController: passwordController,
-                  onSuccess: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
-                  },
-                ),
-                const RegisterRow(),
-              ],
+            child: Form(
+              key: signInFormKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const LogoWidget(),
+                  const SignInTitle(),
+                  const SizedBox(height: 20),
+                  EmailField(emailController: emailController),
+                  const SizedBox(height: 20),
+                  PasswordField(
+                    passwordController: passwordController,
+                    isVisible: isVisible,
+                    toggleVisibility: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 50),
+                  SignInButton(
+                    signInFormKey: signInFormKey,
+                    emailController: emailController,
+                    passwordController: passwordController,
+                    onSuccess: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
+                    },
+                  ),
+                  const RegisterRow(),
+                ],
+              ),
             ),
           ),
         ),

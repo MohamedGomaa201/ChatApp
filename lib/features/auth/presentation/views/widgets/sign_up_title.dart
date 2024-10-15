@@ -1,13 +1,13 @@
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
 
-class SignInTitle extends StatelessWidget {
-  const SignInTitle({super.key});
+class SignUpTitle extends StatelessWidget {
+  const SignUpTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      "Log in to your account",
+      "Register To New Account",
       style: Styles.textStyle24,
     );
   }
