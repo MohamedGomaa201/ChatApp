@@ -1,7 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:chat_app/core/shared%20widgets/custom_snack_bar.dart';
 import 'package:flutter/material.dart';
-
 import 'package:chat_app/core/shared%20widgets/custom_button.dart';
 import 'package:chat_app/core/themes/app_colors.dart';
 
