@@ -28,20 +28,24 @@ class SignUpButton extends StatelessWidget {
       width: double.infinity,
       child: CustomButton(
         onPressed: () {
-          if (!signUpFormKey.currentState!.validate()) {
-            if (emailController.text.isEmpty) {
-              return CustomSnackBar.show(context, "Email can't be empty");
-            } else if (!emailController.text.contains("@")) {
-              return CustomSnackBar.show(context, "Email isn't valid");
-            } else if (passwordController.text.isEmpty) {
-              return CustomSnackBar.show(context, "Password can't be empty");
-            } else if (passwordController.text.length < 8) {
-              return CustomSnackBar.show(
-                  context, "Password must be more than 8 characters");
-            } else {
-              return CustomSnackBar.show(context, "There an error try again");
-            }
-          } else {
+          //***snackbar validation***//
+          // if (!signUpFormKey.currentState!.validate()) {
+          //   if (emailController.text.isEmpty) {
+          //     return CustomSnackBar.show(context, "Email can't be empty");
+          //   } else if (!emailController.text.contains("@")) {
+          //     return CustomSnackBar.show(context, "Email isn't valid");
+          //   } else if (passwordController.text.isEmpty) {
+          //     return CustomSnackBar.show(context, "Password can't be empty");
+          //   } else if (passwordController.text.length < 8) {
+          //     return CustomSnackBar.show(
+          //         context, "Password must be more than 8 characters");
+          //   } else {
+          //     return CustomSnackBar.show(context, "There an error try again");
+          //   }
+          // } else {
+          //   onSuccess();
+          // }
+          if (signUpFormKey.currentState!.validate()) {
             onSuccess();
           }
         },

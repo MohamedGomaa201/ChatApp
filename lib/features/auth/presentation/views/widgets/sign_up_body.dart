@@ -38,11 +38,11 @@ class _SignUpBodyState extends State<SignUpBody> {
                   const SignUpTitle(),
                   const SizedBox(height: 20),
                   NameField(nameController: nameController),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   EmailField(emailController: emailController),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   PhoneField(phoneController: phoneController),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   PasswordField(
                     passwordController: passwordController,
                     isVisible: isVisible,
@@ -52,7 +52,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                       });
                     },
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 20),
                   SignUpButton(
                     signUpFormKey: signUpFormKey,
                     emailController: emailController,
