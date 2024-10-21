@@ -2,15 +2,15 @@ import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
 
-class HomeBottomNavBar extends StatefulWidget {
-  const HomeBottomNavBar({super.key});
+class HomeBottomNavBar extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<int> onTap;
+  const HomeBottomNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
-  @override
-  State<HomeBottomNavBar> createState() => _HomeBottomNavBarState();
-}
-
-class _HomeBottomNavBarState extends State<HomeBottomNavBar> {
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -18,11 +18,7 @@ class _HomeBottomNavBarState extends State<HomeBottomNavBar> {
       elevation: 0,
       selectedLabelStyle: Styles.selectedBottomNavBar,
       unselectedLabelStyle: Styles.unSelectedBottomNavBar,
-      onTap: (index) {
-        setState(() {
-          currentIndex = index;
-        });
-      },
+      onTap: onTap,
       currentIndex: currentIndex,
       items: const [
         BottomNavigationBarItem(
