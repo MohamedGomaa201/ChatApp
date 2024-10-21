@@ -1,8 +1,5 @@
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:chat_app/core/themes/styles.dart';
-import 'package:chat_app/features/calls/views/widgets/calls_body.dart';
-import 'package:chat_app/features/chat/views/widgets/chat_body.dart';
-import 'package:chat_app/features/status/views/widgets/status_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeBottomNavBar extends StatefulWidget {
