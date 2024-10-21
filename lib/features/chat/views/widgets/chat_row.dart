@@ -1,6 +1,6 @@
-import 'package:chat_app/features/home/presentation/view/widgets/avatr_image.dart';
-import 'package:chat_app/features/home/presentation/view/widgets/name_and_last_msg.dart';
-import 'package:chat_app/features/home/presentation/view/widgets/time_and_number_of_msgs.dart';
+import 'package:chat_app/features/chat/views/widgets/avatr_image.dart';
+import 'package:chat_app/features/chat/views/widgets/name_and_last_msg.dart';
+import 'package:chat_app/features/chat/views/widgets/time_and_number_of_msgs.dart';
 import 'package:flutter/material.dart';
 
 class ChatRow extends StatelessWidget {

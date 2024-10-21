@@ -1,3 +1,4 @@
+import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 abstract class Styles {
@@ -24,5 +25,14 @@ abstract class Styles {
     fontSize: 28,
     color: Colors.black,
     fontWeight: FontWeight.w800,
+  );
+  static TextStyle selectedBottomNavBar = const TextStyle(
+    fontSize: 17,
+    color: AppColors.primaryColor,
+    // fontWeight: FontWeight.w600,
+  );
+  static TextStyle unSelectedBottomNavBar = const TextStyle(
+    fontSize: 14,
+    color: Colors.grey,
   );
 }

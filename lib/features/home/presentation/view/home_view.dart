@@ -1,37 +1,29 @@
-import 'package:chat_app/core/themes/styles.dart';
-import 'package:chat_app/features/home/presentation/view/widgets/home_body.dart';
+import 'package:chat_app/features/calls/views/widgets/calls_body.dart';
+import 'package:chat_app/features/chat/views/widgets/chat_body.dart';
+import 'package:chat_app/features/home/presentation/view/widgets/home_app_bar.dart';
+import 'package:chat_app/features/home/presentation/view/widgets/home_bottom_nav_bar.dart';
 import 'package:chat_app/features/home/presentation/view/widgets/home_floating_action_button.dart';
+import 'package:chat_app/features/status/views/widgets/status_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final int currentIndex = 0;
+
+  final List<Widget> screens = [
+    const ChatBody(),
+    const StatusBody(),
+    const CallsBody(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "WhatsUp",
-          style: Styles.textStyle28,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search_rounded),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
-          ),
-        ],
-      ),
-      body: const HomeBody(),
+      appBar: HomeAppBar(appBar: AppBar()),
+      body: screens[currentIndex],
       floatingActionButton: const HomeFloatingActionButton(),
-      //***to be countinue...***/
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: [],
-      //   currentIndex: 0,
-      // ),
+      bottomNavigationBar: const HomeBottomNavBar(),
     );
   }
 }
