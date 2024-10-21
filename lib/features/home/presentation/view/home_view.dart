@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
+  IconData floatingIcon = Icons.message;
 
   final List<Widget> screens = [
     const ChatBody(),
@@ -27,13 +28,21 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: HomeAppBar(appBar: AppBar()),
       body: screens[currentIndex],
-      floatingActionButton: const HomeFloatingActionButton(),
+      floatingActionButton:
+          HomeFloatingActionButton(floatingIcon: floatingIcon),
       bottomNavigationBar: HomeBottomNavBar(
         currentIndex: currentIndex,
         onTap: (index) {
           setState(() {
             currentIndex = index;
           });
+          if (currentIndex == 0) {
+            floatingIcon = Icons.message;
+          } else if (currentIndex == 1) {
+            floatingIcon = Icons.add_a_photo_rounded;
+          } else {
+            floatingIcon = Icons.add_ic_call_rounded;
+          }
         },
       ),
     );

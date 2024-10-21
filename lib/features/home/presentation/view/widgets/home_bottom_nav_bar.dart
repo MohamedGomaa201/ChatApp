@@ -30,7 +30,7 @@ class HomeBottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.lightbulb_sharp,
+            Icons.tips_and_updates,
             color: AppColors.primaryColor,
           ),
           label: "Status",

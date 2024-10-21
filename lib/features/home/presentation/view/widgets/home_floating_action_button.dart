@@ -2,8 +2,10 @@ import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeFloatingActionButton extends StatelessWidget {
+  final IconData floatingIcon;
   const HomeFloatingActionButton({
     super.key,
+    required this.floatingIcon,
   });
 
   @override
@@ -18,8 +20,8 @@ class HomeFloatingActionButton extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       child: IconButton(
         onPressed: () {},
-        icon: const Icon(
-          Icons.message,
+        icon: Icon(
+          floatingIcon,
           color: Colors.white,
         ),
       ),
