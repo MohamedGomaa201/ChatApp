@@ -23,7 +23,7 @@ PreferredSizeWidget customAppBar(onSelect) {
               child: Row(
                 children: [
                   Icon(Icons.person_outline),
-                  SizedBox(width: 5),
+                  SizedBox(width: 10),
                   Text("Profile"),
                 ],
               ),
@@ -33,8 +33,18 @@ PreferredSizeWidget customAppBar(onSelect) {
               child: Row(
                 children: [
                   Icon(Icons.settings_outlined),
-                  SizedBox(width: 5),
+                  SizedBox(width: 10),
                   Text("Settings"),
+                ],
+              ),
+            ),
+            PopupMenuItem(
+              value: '/signin',
+              child: Row(
+                children: [
+                  Icon(Icons.logout_outlined),
+                  SizedBox(width: 10),
+                  Text("Logout"),
                 ],
               ),
             ),

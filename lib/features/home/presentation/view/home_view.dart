@@ -19,8 +19,6 @@ class _HomeViewState extends State<HomeView> {
 
   var selectedItem = "";
 
-
-
   final List<Widget> screens = [
     const ChatBody(),
     const StatusBody(),
@@ -35,7 +33,11 @@ class _HomeViewState extends State<HomeView> {
           setState(() {
             selectedItem = value.toString();
           });
-          Navigator.pushNamed(context, value.toString());
+          if (selectedItem == "/signin") {
+            Navigator.pushReplacementNamed(context, value.toString());
+          } else {
+            Navigator.pushNamed(context, value.toString());
+          }
         },
       ),
       body: screens[currentIndex],
