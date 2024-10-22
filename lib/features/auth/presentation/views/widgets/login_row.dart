@@ -1,4 +1,3 @@
-import 'package:chat_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginRow extends StatelessWidget {
@@ -15,12 +14,7 @@ class LoginRow extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SignInView(),
-              ),
-            );
+            Navigator.pushNamed(context, "/signin");
           },
           child: const Text(
             "Login",

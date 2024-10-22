@@ -1,4 +1,7 @@
-import 'package:chat_app/core/constants/app_images.dart';
+import 'package:chat_app/features/status/views/widgets/lable.dart';
+import 'package:chat_app/features/status/views/widgets/my_status_row.dart';
+import 'package:chat_app/features/status/views/widgets/not_opened_story_builder.dart';
+import 'package:chat_app/features/status/views/widgets/opened_story_builder.dart';
 import 'package:flutter/material.dart';
 
 class StatusBody extends StatelessWidget {
@@ -6,20 +9,15 @@ class StatusBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ListView(
-        children: const [
-          Row(
-            children: [
-              CircleAvatar(
-                backgroundImage: AssetImage(
-                  AppImages.userImage,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+    return ListView(
+      padding: const EdgeInsets.all(15),
+      children: const [
+        MyStatusRow(),
+        Lablel(lablel: "Recent updates"),
+        NotOpenedStoryBuilder(),
+        Lablel(lablel: "Viewed updates"),
+        OpenedStoryBuilder(),
+      ],
     );
   }
 }
