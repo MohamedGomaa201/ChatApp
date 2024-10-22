@@ -1,6 +1,6 @@
+import 'package:chat_app/core/shared%20widgets/custom_app_bar.dart';
 import 'package:chat_app/features/calls/views/calls_body.dart';
 import 'package:chat_app/features/chat/views/chat_body.dart';
-import 'package:chat_app/features/home/presentation/view/widgets/home_app_bar.dart';
 import 'package:chat_app/features/home/presentation/view/widgets/home_bottom_nav_bar.dart';
 import 'package:chat_app/features/home/presentation/view/widgets/home_floating_action_button.dart';
 import 'package:chat_app/features/status/views/status_body.dart';
@@ -17,6 +17,10 @@ class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
   IconData floatingIcon = Icons.message;
 
+  var selectedItem = "";
+
+
+
   final List<Widget> screens = [
     const ChatBody(),
     const StatusBody(),
@@ -26,7 +30,14 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBar(appBar: AppBar()),
+      appBar: customAppBar(
+        (value) {
+          setState(() {
+            selectedItem = value.toString();
+          });
+          Navigator.pushNamed(context, value.toString());
+        },
+      ),
       body: screens[currentIndex],
       floatingActionButton:
           HomeFloatingActionButton(floatingIcon: floatingIcon),
