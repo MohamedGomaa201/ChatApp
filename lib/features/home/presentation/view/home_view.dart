@@ -16,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   IconData floatingIcon = Icons.message;
+  var selectedItem = "";
 
   final List<Widget> screens = [
     const ChatBody(),
