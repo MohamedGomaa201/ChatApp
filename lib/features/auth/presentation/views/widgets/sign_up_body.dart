@@ -5,7 +5,6 @@ import 'package:chat_app/features/auth/presentation/views/widgets/password_field
 import 'package:chat_app/features/auth/presentation/views/widgets/phone_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_up_button.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_up_title.dart';
-import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:chat_app/features/splash/presentation/view/widgets/logo_image.dart';
 import 'package:flutter/material.dart';
 
@@ -60,12 +59,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                     passwordController: passwordController,
                     phoneController: phoneController,
                     onSuccess: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
-                        ),
-                      );
+                      Navigator.pushReplacementNamed(context, "/home");
                     },
                   ),
                   const LoginRow(),

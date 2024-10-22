@@ -1,5 +1,5 @@
 import 'package:chat_app/core/themes/app_colors.dart';
-import 'package:chat_app/features/status/views/widgets/user_avatar.dart';
+import 'package:chat_app/core/shared%20widgets/user_avatar.dart';
 import 'package:flutter/material.dart';
 
 class NotOpenedStoryAvatar extends StatelessWidget {

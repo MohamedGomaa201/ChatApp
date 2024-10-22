@@ -1,4 +1,4 @@
-import 'package:chat_app/features/status/views/widgets/user_avatar.dart';
+import 'package:chat_app/core/shared%20widgets/user_avatar.dart';
 import 'package:flutter/material.dart';
 
 class OpenedStoryAvatar extends StatelessWidget {

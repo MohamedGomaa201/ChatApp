@@ -1,6 +1,6 @@
 import 'package:chat_app/features/status/views/widgets/add_story_button.dart';
 import 'package:chat_app/features/status/views/widgets/avatar_lable.dart';
-import 'package:chat_app/features/status/views/widgets/user_avatar.dart';
+import 'package:chat_app/core/shared%20widgets/user_avatar.dart';
 import 'package:flutter/material.dart';
 
 class MyStatusRow extends StatelessWidget {

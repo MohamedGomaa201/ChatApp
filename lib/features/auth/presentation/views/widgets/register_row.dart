@@ -1,4 +1,3 @@
-import 'package:chat_app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
 class RegisterRow extends StatelessWidget {
@@ -15,12 +14,7 @@ class RegisterRow extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SignUpView(),
-              ),
-            );
+            Navigator.pushNamed(context, "/signup");
           },
           child: const Text(
             "Register Now",

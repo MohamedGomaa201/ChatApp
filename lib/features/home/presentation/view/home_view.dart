@@ -6,14 +6,14 @@ import 'package:chat_app/features/home/presentation/view/widgets/home_floating_a
 import 'package:chat_app/features/status/views/status_body.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
   IconData floatingIcon = Icons.message;
 
