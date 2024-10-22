@@ -15,6 +15,8 @@ class EmailField extends StatelessWidget {
       validate: (value) {
         if (value.isEmpty) {
           return "Email can't be empty";
+        } else if (!value.contains("@")) {
+          return "Email isn't valid";
         } else {
           return null;
         }

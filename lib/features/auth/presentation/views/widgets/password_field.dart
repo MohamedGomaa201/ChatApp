@@ -27,6 +27,8 @@ class PasswordField extends StatelessWidget {
       validate: (value) {
         if (value.isEmpty) {
           return "Please enter the password";
+        } else if (value.toString().length < 8) {
+          return "Password should be more than 8 character";
         } else {
           return null;
         }
