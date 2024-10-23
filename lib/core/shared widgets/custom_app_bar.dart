@@ -29,7 +29,6 @@ PreferredSizeWidget customAppBar(onSelect) {
               ),
             ),
             PopupMenuItem(
-              value: '/settings',
               child: Row(
                 children: [
                   Icon(Icons.settings_outlined),
