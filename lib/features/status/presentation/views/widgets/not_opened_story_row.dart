@@ -1,5 +1,5 @@
-import 'package:chat_app/features/status/views/widgets/avatar_lable.dart';
-import 'package:chat_app/features/status/views/widgets/not_opened_story_avatar.dart';
+import 'package:chat_app/features/status/presentation/views/widgets/avatar_lable.dart';
+import 'package:chat_app/features/status/presentation/views/widgets/not_opened_story_avatar.dart';
 import 'package:flutter/material.dart';
 
 class NotOpenedStoryRow extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:chat_app/core/shared%20widgets/custom_app_bar.dart';
-import 'package:chat_app/features/calls/views/calls_body.dart';
-import 'package:chat_app/features/chat/views/chat_body.dart';
+import 'package:chat_app/features/calls/presentation/views/calls_body.dart';
+import 'package:chat_app/features/chat/presentation/views/chat_body.dart';
 import 'package:chat_app/features/home/presentation/view/widgets/home_bottom_nav_bar.dart';
 import 'package:chat_app/features/home/presentation/view/widgets/home_floating_action_button.dart';
-import 'package:chat_app/features/status/views/status_body.dart';
+import 'package:chat_app/features/status/presentation/views/status_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {

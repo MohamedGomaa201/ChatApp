@@ -1,5 +1,5 @@
-import 'package:chat_app/features/calls/views/widgets/made_call_row.dart';
-import 'package:chat_app/features/calls/views/widgets/missed_call_row.dart';
+import 'package:chat_app/features/calls/presentation/views/widgets/made_call_row.dart';
+import 'package:chat_app/features/calls/presentation/views/widgets/missed_call_row.dart';
 import 'package:flutter/material.dart';
 
 class CallsBody extends StatelessWidget {

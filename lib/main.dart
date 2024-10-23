@@ -1,7 +1,7 @@
 import 'package:chat_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:chat_app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
-import 'package:chat_app/features/profile/views/profile_view.dart';
+import 'package:chat_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chat_app/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -1,6 +1,6 @@
 import 'package:chat_app/core/shared%20widgets/user_avatar.dart';
-import 'package:chat_app/features/calls/views/widgets/call_button.dart';
-import 'package:chat_app/features/calls/views/widgets/made_call_label.dart';
+import 'package:chat_app/features/calls/presentation/views/widgets/call_button.dart';
+import 'package:chat_app/features/calls/presentation/views/widgets/made_call_label.dart';
 import 'package:flutter/material.dart';
 
 class MadeCallRow extends StatelessWidget {

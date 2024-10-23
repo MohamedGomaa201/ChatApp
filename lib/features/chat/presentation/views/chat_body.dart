@@ -1,5 +1,5 @@
-import 'package:chat_app/features/chat/chat_model.dart';
-import 'package:chat_app/features/chat/views/widgets/chat_row.dart';
+import 'package:chat_app/features/chat/presentation/chat_model.dart';
+import 'package:chat_app/features/chat/presentation/views/widgets/chat_row.dart';
 import 'package:flutter/material.dart';
 
 class ChatBody extends StatelessWidget {

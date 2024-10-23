@@ -1,6 +1,6 @@
-import 'package:chat_app/features/profile/views/widgets/edit_user_image_stack.dart';
-import 'package:chat_app/features/profile/views/widgets/profile_text_field.dart';
-import 'package:chat_app/features/profile/views/widgets/save_profile_button.dart';
+import 'package:chat_app/features/profile/presentation/views/widgets/edit_user_image_stack.dart';
+import 'package:chat_app/features/profile/presentation/views/widgets/profile_text_field.dart';
+import 'package:chat_app/features/profile/presentation/views/widgets/save_profile_button.dart';
 import 'package:flutter/material.dart';
 
 class ProfileBody extends StatelessWidget {

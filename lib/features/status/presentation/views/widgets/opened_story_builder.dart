@@ -1,4 +1,4 @@
-import 'package:chat_app/features/status/views/widgets/opened_story_row.dart';
+import 'package:chat_app/features/status/presentation/views/widgets/opened_story_row.dart';
 import 'package:flutter/material.dart';
 
 class OpenedStoryBuilder extends StatelessWidget {

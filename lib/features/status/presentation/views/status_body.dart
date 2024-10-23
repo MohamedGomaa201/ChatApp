@@ -1,7 +1,7 @@
-import 'package:chat_app/features/status/views/widgets/lable.dart';
-import 'package:chat_app/features/status/views/widgets/my_status_row.dart';
-import 'package:chat_app/features/status/views/widgets/not_opened_story_builder.dart';
-import 'package:chat_app/features/status/views/widgets/opened_story_builder.dart';
+import 'package:chat_app/features/status/presentation/views/widgets/lable.dart';
+import 'package:chat_app/features/status/presentation/views/widgets/my_status_row.dart';
+import 'package:chat_app/features/status/presentation/views/widgets/not_opened_story_builder.dart';
+import 'package:chat_app/features/status/presentation/views/widgets/opened_story_builder.dart';
 import 'package:flutter/material.dart';
 
 class StatusBody extends StatelessWidget {
