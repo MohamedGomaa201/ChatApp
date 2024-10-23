@@ -33,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
           setState(() {
             selectedItem = value.toString();
           });
-          if (selectedItem == "/signin") {
+          if (selectedItem == "/signin" || selectedItem == "/signup") {
             Navigator.pushReplacementNamed(context, value.toString());
           } else {
             Navigator.pushNamed(context, value.toString());
