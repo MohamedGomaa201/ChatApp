@@ -14,7 +14,7 @@ class RegisterRow extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, "/signup");
+            Navigator.pushReplacementNamed(context, "/signup");
           },
           child: const Text(
             "Register Now",

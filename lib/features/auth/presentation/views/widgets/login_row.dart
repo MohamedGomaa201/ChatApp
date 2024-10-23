@@ -14,7 +14,7 @@ class LoginRow extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, "/signin");
+            Navigator.pushReplacementNamed(context, "/signin");
           },
           child: const Text(
             "Login",
