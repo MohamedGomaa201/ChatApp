@@ -7,6 +7,7 @@ Widget customTextForm({
   Function(String)? onChang,
   FormFieldValidator? validate,
   String? label,
+  String? initialValue,
   String? hint,
   IconData? prefix,
   IconData? suffix,
@@ -23,6 +24,7 @@ Widget customTextForm({
       onTap: tap,
       enabled: enable,
       obscureText: isObscure,
+      initialValue: initialValue,
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
