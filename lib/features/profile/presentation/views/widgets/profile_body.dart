@@ -23,9 +23,15 @@ class ProfileBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 25),
-                ProfileTextField(lable: 'Name'),
+                ProfileTextField(
+                  lable: 'Name',
+                  initialValue: 'Mohamed Gomaa',
+                ),
                 SizedBox(height: 25),
-                ProfileTextField(lable: 'Phone'),
+                ProfileTextField(
+                  lable: 'Phone',
+                  initialValue: '01015043548',
+                ),
                 SizedBox(height: 75),
                 SaveProfileButton(),
               ],
