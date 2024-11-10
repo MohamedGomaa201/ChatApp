@@ -1,5 +1,6 @@
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Lablel extends StatelessWidget {
   final String lablel;
@@ -11,7 +12,7 @@ class Lablel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25, bottom: 15),
+      padding: EdgeInsets.only(top: 25.h, bottom: 15.h),
       child: Text(
         lablel,
         style: Styles.textStyle15.copyWith(

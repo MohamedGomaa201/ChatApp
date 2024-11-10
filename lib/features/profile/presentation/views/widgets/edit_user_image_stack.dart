@@ -1,6 +1,7 @@
 import 'package:chat_app/core/constants/app_images.dart';
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EditUserImageStack extends StatelessWidget {
   const EditUserImageStack({
@@ -11,9 +12,9 @@ class EditUserImageStack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const CircleAvatar(
-          radius: 75,
-          foregroundImage: AssetImage(AppImages.userImage),
+        CircleAvatar(
+          radius: 75.r,
+          foregroundImage: const AssetImage(AppImages.userImage),
         ),
         Positioned(
           bottom: 0,
