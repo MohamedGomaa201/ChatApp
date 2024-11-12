@@ -55,8 +55,6 @@ class _SignInBodyState extends State<SignInBody> {
                     emailController: emailController,
                     passwordController: passwordController,
                     onSuccess: () {
-                      print(
-                          "Width: ${MediaQuery.of(context).size.width}\nHeight: ${MediaQuery.of(context).size.height}");
                       Navigator.pushReplacementNamed(context, "/home");
                     },
                   ),
