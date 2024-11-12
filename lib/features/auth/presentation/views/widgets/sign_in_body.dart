@@ -5,6 +5,7 @@ import 'package:chat_app/features/auth/presentation/views/widgets/email_field.da
 import 'package:chat_app/features/auth/presentation/views/widgets/logo_widget.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/password_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_in_title.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignInBody extends StatefulWidget {
   const SignInBody({
@@ -26,18 +27,19 @@ class _SignInBodyState extends State<SignInBody> {
     return SafeArea(
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(25),
+          padding: EdgeInsets.symmetric(vertical: 25.h, horizontal: 25.w),
           child: SingleChildScrollView(
             child: Form(
               key: signInFormKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const LogoWidget(),
                   const SignInTitle(),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   EmailField(emailController: emailController),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   PasswordField(
                     passwordController: passwordController,
                     isVisible: isVisible,
@@ -47,7 +49,7 @@ class _SignInBodyState extends State<SignInBody> {
                       });
                     },
                   ),
-                  const SizedBox(height: 50),
+                  SizedBox(height: 50.h),
                   SignInButton(
                     signInFormKey: signInFormKey,
                     emailController: emailController,

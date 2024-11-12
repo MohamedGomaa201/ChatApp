@@ -1,5 +1,6 @@
 import 'package:chat_app/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AvatarImage extends StatelessWidget {
   const AvatarImage({
@@ -10,7 +11,7 @@ class AvatarImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       AppImages.avatar,
-      width: 90,
+      width: 90.w,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget customTextForm({
   TextEditingController? controller,
@@ -36,11 +37,11 @@ Widget customTextForm({
               )
             : null,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(30.r),
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 2.w),
         ),
       ),
-      style: const TextStyle(fontSize: 14),
+      style: TextStyle(fontSize: 14.sp),
     );

@@ -1,5 +1,6 @@
 import 'package:chat_app/features/status/presentation/views/widgets/not_opened_story_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotOpenedStoryBuilder extends StatelessWidget {
   const NotOpenedStoryBuilder({
@@ -9,7 +10,7 @@ class NotOpenedStoryBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 260,
+      height: 260.h,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 3,

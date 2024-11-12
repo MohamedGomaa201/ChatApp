@@ -7,6 +7,7 @@ import 'package:chat_app/features/auth/presentation/views/widgets/sign_up_button
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_up_title.dart';
 import 'package:chat_app/features/splash/presentation/view/widgets/logo_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpBody extends StatefulWidget {
   const SignUpBody({super.key});
@@ -27,21 +28,23 @@ class _SignUpBodyState extends State<SignUpBody> {
     return SafeArea(
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(25),
+          padding: EdgeInsets.symmetric(vertical: 25.h, horizontal: 25.w),
           child: SingleChildScrollView(
             child: Form(
               key: signUpFormKey,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const LogoImage(),
                   const SignUpTitle(),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   NameField(nameController: nameController),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   EmailField(emailController: emailController),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   PhoneField(phoneController: phoneController),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   PasswordField(
                     passwordController: passwordController,
                     isVisible: isVisible,
@@ -51,7 +54,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                       });
                     },
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   SignUpButton(
                     signUpFormKey: signUpFormKey,
                     emailController: emailController,

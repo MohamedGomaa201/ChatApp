@@ -1,6 +1,7 @@
 import 'package:chat_app/features/chat/presentation/chat_model.dart';
 import 'package:chat_app/features/chat/presentation/views/widgets/chat_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatBody extends StatelessWidget {
   const ChatBody({super.key});
@@ -10,7 +11,7 @@ class ChatBody extends StatelessWidget {
       children: [
         const Divider(),
         Padding(
-          padding: const EdgeInsets.only(right: 15),
+          padding: EdgeInsets.only(right: 15.w),
           child: Column(
             children: chatData.entries.map((data) {
               final name = data.value[0]['name'] ?? 'Unknown';

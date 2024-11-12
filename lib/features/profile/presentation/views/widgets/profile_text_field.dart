@@ -1,6 +1,7 @@
 import 'package:chat_app/core/shared%20widgets/custom_text_form.dart';
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileTextField extends StatelessWidget {
   final String lable;
@@ -23,9 +24,9 @@ class ProfileTextField extends StatelessWidget {
             color: Colors.grey,
           ),
         ),
-        const SizedBox(height: 5),
+        SizedBox(height: 5.h),
         Material(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(30.r),
           color: Colors.white,
           elevation: 20,
           child: customTextForm(

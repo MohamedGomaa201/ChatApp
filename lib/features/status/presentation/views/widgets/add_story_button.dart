@@ -1,5 +1,6 @@
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddStoryButton extends StatelessWidget {
   const AddStoryButton({
@@ -16,9 +17,9 @@ class AddStoryButton extends StatelessWidget {
           color: Colors.white,
           border: Border.all(
             color: AppColors.primaryColor,
-            width: 2.5,
+            width: 2.5.w,
           ),
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(25.r),
         ),
         child: const Icon(
           Icons.add,

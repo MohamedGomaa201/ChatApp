@@ -1,5 +1,6 @@
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 PreferredSizeWidget customAppBar(onSelect) {
   return AppBar(
@@ -17,23 +18,23 @@ PreferredSizeWidget customAppBar(onSelect) {
         color: Colors.white,
         onSelected: onSelect,
         itemBuilder: (context) {
-          return const [
+          return [
             PopupMenuItem(
               value: '/profile',
               child: Row(
                 children: [
-                  Icon(Icons.person_outline),
-                  SizedBox(width: 10),
-                  Text("Profile"),
+                  const Icon(Icons.person_outline),
+                  SizedBox(width: 10.w),
+                  const Text("Profile"),
                 ],
               ),
             ),
             PopupMenuItem(
               child: Row(
                 children: [
-                  Icon(Icons.settings_outlined),
-                  SizedBox(width: 10),
-                  Text("Settings"),
+                  const Icon(Icons.settings_outlined),
+                  SizedBox(width: 10.w),
+                  const Text("Settings"),
                 ],
               ),
             ),
@@ -41,9 +42,9 @@ PreferredSizeWidget customAppBar(onSelect) {
               value: '/signin',
               child: Row(
                 children: [
-                  Icon(Icons.logout_outlined),
-                  SizedBox(width: 10),
-                  Text("Logout"),
+                  const Icon(Icons.logout_outlined),
+                  SizedBox(width: 10.w),
+                  const Text("Logout"),
                 ],
               ),
             ),

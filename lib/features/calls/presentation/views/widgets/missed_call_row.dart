@@ -2,6 +2,7 @@ import 'package:chat_app/core/shared%20widgets/user_avatar.dart';
 import 'package:chat_app/features/calls/presentation/views/widgets/call_button.dart';
 import 'package:chat_app/features/calls/presentation/views/widgets/missed_call_label.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MissedCallRow extends StatelessWidget {
   const MissedCallRow({
@@ -10,15 +11,15 @@ class MissedCallRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(bottom: 15),
+    return Padding(
+      padding: EdgeInsets.only(bottom: 15.h),
       child: Row(
         children: [
-          UserAvatar(),
-          SizedBox(width: 15),
-          MissedCallLabel(),
-          Spacer(),
-          CallButton(),
+          const UserAvatar(),
+          SizedBox(width: 15.w),
+          const MissedCallLabel(),
+          const Spacer(),
+          const CallButton(),
         ],
       ),
     );

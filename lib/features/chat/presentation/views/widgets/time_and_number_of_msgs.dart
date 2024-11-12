@@ -1,6 +1,7 @@
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TimeAndNumberOfMsgs extends StatelessWidget {
   const TimeAndNumberOfMsgs({
@@ -12,20 +13,20 @@ class TimeAndNumberOfMsgs extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        const Row(
+        Row(
           children: [
-            Text("12:00"),
-            SizedBox(width: 5),
-            Text("PM"),
+            const Text("12:00"),
+            SizedBox(width: 5.w),
+            const Text("PM"),
           ],
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Container(
-          width: 30,
-          height: 30,
+          width: 30.w,
+          height: 30.h,
           decoration: BoxDecoration(
             color: AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.circular(50.r),
           ),
           child: Center(
             child: Text(
