@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "896686770545",
+    "project_id": "mentorchatapp",
+    "storage_bucket": "mentorchatapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896686770545:android:16c0f31900dae4b875ced0",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdGJCo8qLft2bc31DrkzEOeUBBz-vKJT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
