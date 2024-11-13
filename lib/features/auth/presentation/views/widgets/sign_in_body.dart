@@ -1,5 +1,6 @@
 import 'package:chat_app/features/auth/presentation/views/widgets/register_row.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_in_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/email_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/logo_widget.dart';
@@ -54,9 +55,6 @@ class _SignInBodyState extends State<SignInBody> {
                     signInFormKey: signInFormKey,
                     emailController: emailController,
                     passwordController: passwordController,
-                    onSuccess: () {
-                      Navigator.pushReplacementNamed(context, "/home");
-                    },
                   ),
                   const RegisterRow(),
                 ],

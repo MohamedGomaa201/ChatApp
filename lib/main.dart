@@ -28,6 +28,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           routes: {
             "/splash": (context) => const SplashView(),
             "/signin": (context) => const SignInView(),
