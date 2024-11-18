@@ -1,5 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:developer';
+
 import 'package:chat_app/features/auth/presentation/views/widgets/register_row.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_in_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/email_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/logo_widget.dart';
@@ -54,8 +59,39 @@ class _SignInBodyState extends State<SignInBody> {
                     signInFormKey: signInFormKey,
                     emailController: emailController,
                     passwordController: passwordController,
-                    onSuccess: () {
-                      Navigator.pushReplacementNamed(context, "/home");
+                    onSuccess: () async {
+                      try {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
+                        Navigator.pushReplacementNamed(context, "/home");
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Colors.red,
+                              content: Text("This email not registered yet"),
+                            ),
+                          );
+                        } else if (e.code == 'wrong-password') {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Colors.red,
+                              content: Text(
+                                  "Wrong password"),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                             SnackBar(
+                              content: Text(e.toString()),
+                            ),
+                          );
+                        }
+                      } catch (e) {
+                        log(e.toString());
+                      }
                     },
                   ),
                   const RegisterRow(),

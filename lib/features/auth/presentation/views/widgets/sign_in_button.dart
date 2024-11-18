@@ -5,14 +5,14 @@ import 'package:chat_app/core/themes/app_colors.dart';
 class SignInButton extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final Function onSuccess;
   final GlobalKey<FormState> signInFormKey;
+  final Function onSuccess;
   const SignInButton({
     super.key,
     required this.emailController,
     required this.passwordController,
-    required this.onSuccess,
     required this.signInFormKey,
+    required this.onSuccess,
   });
 
   @override
@@ -20,7 +20,7 @@ class SignInButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: CustomButton(
-        onPressed: () {
+        onPressed: (){
           //***snackbar validation***//
           // if (!signInFormKey.currentState!.validate()) {
           //   if (emailController.text.isEmpty) {
@@ -38,6 +38,7 @@ class SignInButton extends StatelessWidget {
           // } else {
           //   onSuccess();
           // }
+
           if (signInFormKey.currentState!.validate()) {
             onSuccess();
           }

@@ -3,11 +3,17 @@ import 'package:chat_app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:chat_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chat_app/features/splash/presentation/view/splash_view.dart';
+import 'package:chat_app/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
@@ -22,6 +28,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           routes: {
             "/splash": (context) => const SplashView(),
             "/signin": (context) => const SignInView(),
