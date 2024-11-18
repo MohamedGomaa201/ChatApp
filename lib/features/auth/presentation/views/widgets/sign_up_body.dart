@@ -1,3 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:developer';
+
 import 'package:chat_app/features/auth/presentation/views/widgets/email_field.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/login_row.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/name_field.dart';
@@ -64,26 +68,33 @@ class _SignUpBodyState extends State<SignUpBody> {
                     phoneController: phoneController,
                     onSuccess: () async {
                       try {
-                        final credential = await FirebaseAuth.instance
+                        await FirebaseAuth.instance
                             .createUserWithEmailAndPassword(
                           email: emailController.text,
                           password: passwordController.text,
                         );
+                        Navigator.pushReplacementNamed(context, "/home");
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'weak-password') {
-                          const SnackBar(
-                            content: Text("The password provided is too weak."),
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Colors.red,
+                              content:
+                                  Text("The password is too weak"),
+                            ),
                           );
                         } else if (e.code == 'email-already-in-use') {
-                          const SnackBar(
-                            content: Text(
-                                "The account already exists for that email."),
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Colors.red,
+                              content: Text(
+                                  "The email already registered"),
+                            ),
                           );
                         }
                       } catch (e) {
-                        print(e);
+                        log(e.toString());
                       }
-                      Navigator.pushReplacementNamed(context, "/home");
                     },
                   ),
                   const LoginRow(),

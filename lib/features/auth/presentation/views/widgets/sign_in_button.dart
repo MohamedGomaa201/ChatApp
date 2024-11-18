@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/core/shared%20widgets/custom_button.dart';
 import 'package:chat_app/core/themes/app_colors.dart';
@@ -7,11 +6,13 @@ class SignInButton extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final GlobalKey<FormState> signInFormKey;
+  final Function onSuccess;
   const SignInButton({
     super.key,
     required this.emailController,
     required this.passwordController,
     required this.signInFormKey,
+    required this.onSuccess,
   });
 
   @override
@@ -19,7 +20,7 @@ class SignInButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: CustomButton(
-        onPressed: () async {
+        onPressed: (){
           //***snackbar validation***//
           // if (!signInFormKey.currentState!.validate()) {
           //   if (emailController.text.isEmpty) {
@@ -39,28 +40,7 @@ class SignInButton extends StatelessWidget {
           // }
 
           if (signInFormKey.currentState!.validate()) {
-            try {
-              final credential =
-                  await FirebaseAuth.instance.signInWithEmailAndPassword(
-                email: emailController.text,
-                password: passwordController.text,
-              );
-              Navigator.pushReplacementNamed(context, "/home");
-            } on FirebaseAuthException catch (e) {
-              if (e.code == 'user-not-found') {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("No user found for that email."),
-                  ),
-                );
-              } else if (e.code == 'wrong-password') {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Wrong password provided for that user."),
-                  ),
-                );
-              }
-            }
+            onSuccess();
           }
         },
         label: "Log In",
