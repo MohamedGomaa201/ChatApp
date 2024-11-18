@@ -16,9 +16,14 @@ class ChatBody extends StatelessWidget {
             children: chatData.entries.map((data) {
               final name = data.value[0]['name'] ?? 'Unknown';
               final lastMsg = data.value[0]['msg'] ?? 'No message';
-              return ChatRow(
-                name: name,
-                lastMsg: lastMsg,
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/conversation");
+                },
+                child: ChatRow(
+                  name: name,
+                  lastMsg: lastMsg,
+                ),
               );
             }).toList(),
           ),
