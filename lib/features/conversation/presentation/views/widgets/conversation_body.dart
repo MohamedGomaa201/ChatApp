@@ -5,6 +5,10 @@ class ConversationBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Column(
+      children: [
+        
+      ],
+    );
   }
 }

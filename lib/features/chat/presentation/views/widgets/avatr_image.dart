@@ -11,7 +11,7 @@ class AvatarImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       AppImages.avatar,
-      width: 90.w,
+      width: 75.w,
     );
   }
 }

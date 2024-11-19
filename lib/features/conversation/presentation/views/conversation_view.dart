@@ -1,36 +1,41 @@
 import 'package:chat_app/core/constants/app_images.dart';
-import 'package:chat_app/core/themes/app_colors.dart';
-import 'package:chat_app/features/chat/presentation/chat_model.dart';
+import 'package:chat_app/core/themes/styles.dart';
 import 'package:chat_app/features/conversation/presentation/views/widgets/conversation_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConversationView extends StatelessWidget {
-  const ConversationView({super.key});
+  final String name;
+  const ConversationView({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(232, 224, 213, 1),
       appBar: AppBar(
-        backgroundColor: AppColors.primaryColor,
-        actions: const [
-          Icon(
+        backgroundColor: Colors.white,
+        actions: [
+          const Icon(
             Icons.call_rounded,
-            color: Colors.white,
           ),
-          Icon(
+          SizedBox(width: 15.w),
+          const Icon(
             Icons.more_vert_rounded,
-            color: Colors.white,
           ),
         ],
-        //// stoped here ////
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CircleAvatar(
+              backgroundColor: Colors.transparent,
+              radius: 25.w,
               child: Image.asset(AppImages.avatar),
             ),
-
-            /// issue not solved ///
-            Text("${chatData[0]}"),
+            SizedBox(width: 5.w),
+            Text(
+              name,
+              style: Styles.textStyle18,
+            ),
           ],
         ),
       ),
