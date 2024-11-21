@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class NameAndLastMsg extends StatelessWidget {
   final String name;
-  final String lastMsg;
+  // final String lastMsg;
   const NameAndLastMsg({
     super.key,
     required this.name,
-    required this.lastMsg,
+    // required this.lastMsg,
   });
 
   @override
@@ -19,10 +19,10 @@ class NameAndLastMsg extends StatelessWidget {
           name,
           style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w700),
         ),
-        Text(
-          lastMsg,
-          style: Styles.textStyle16,
-        ),
+        // Text(
+        //   lastMsg,
+        //   style: Styles.textStyle16,
+        // ),
       ],
     );
   }

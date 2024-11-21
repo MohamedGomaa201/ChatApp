@@ -15,3 +15,12 @@ final Map<int, List<Map<String, String>>> chatData = {
     {"name": "Gemy", "msg": "bla bla bla"}
   ],
 };
+
+class ChatModel {
+  final String text;
+  ChatModel(this.text);
+
+  factory ChatModel.fromJson(jsonData) {
+    return ChatModel(jsonData["image"]);
+  }
+}

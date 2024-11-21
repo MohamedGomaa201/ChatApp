@@ -1,4 +1,3 @@
-import 'package:chat_app/core/constants/app_images.dart';
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:chat_app/features/conversation/presentation/views/widgets/conversation_body.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConversationView extends StatelessWidget {
   final String name;
-  const ConversationView({super.key, required this.name});
+  final String image;
+  const ConversationView({
+    super.key,
+    required this.name,
+    required this.image,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class ConversationView extends StatelessWidget {
             CircleAvatar(
               backgroundColor: Colors.transparent,
               radius: 25.w,
-              child: Image.asset(AppImages.avatar),
+              child: Image.network(image),
             ),
             SizedBox(width: 5.w),
             Text(

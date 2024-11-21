@@ -36,7 +36,10 @@ class MainApp extends StatelessWidget {
             "/signup": (context) => const SignUpView(),
             "/home": (context) => const HomeView(),
             "/profile": (context) => const ProfileView(),
-            "/conversation": (context) => const ConversationView(name: ''),
+            "/conversation": (context) => const ConversationView(
+                  name: '',
+                  image: '',
+                ),
           },
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
