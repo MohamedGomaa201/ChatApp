@@ -5,7 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ChatTextField extends StatelessWidget {
   const ChatTextField({
     super.key,
+    required this.controller,
   });
+
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +21,13 @@ class ChatTextField extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            TextFieldIcon(onTap: () {}, icon: Icons.emoji_emotions_outlined),
+            TextFieldIcon(
+              onTap: () {},
+              icon: Icons.emoji_emotions_outlined,
+            ),
             Expanded(
               child: TextFormField(
+                controller: controller,
                 minLines: 1,
                 maxLines: 5,
                 decoration: const InputDecoration(
@@ -28,7 +35,6 @@ class ChatTextField extends StatelessWidget {
                   hintStyle: TextStyle(color: Colors.grey),
                   border: InputBorder.none,
                 ),
-                onSaved: (newValue) {},
               ),
             ),
             TextFieldIcon(onTap: () {}, icon: Icons.link_outlined),

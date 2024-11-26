@@ -1,6 +1,5 @@
 import 'package:chat_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:chat_app/features/auth/presentation/views/sign_up_view.dart';
-import 'package:chat_app/features/conversation/presentation/views/conversation_view.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:chat_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chat_app/features/splash/presentation/view/splash_view.dart';
@@ -36,10 +35,6 @@ class MainApp extends StatelessWidget {
             "/signup": (context) => const SignUpView(),
             "/home": (context) => const HomeView(),
             "/profile": (context) => const ProfileView(),
-            "/conversation": (context) => const ConversationView(
-                  name: '',
-                  image: '',
-                ),
           },
           theme: ThemeData(
             appBarTheme: const AppBarTheme(

@@ -6,30 +6,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatRow extends StatelessWidget {
   final String name;
-  // final String lastMsg;
+  final String lastMsg;
   final String avatar;
   const ChatRow({
     super.key,
     required this.name,
-    // required this.lastMsg,
+    required this.lastMsg,
     required this.avatar,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        AvatarImage(
-          avatarLink: avatar,
-        ),
-        SizedBox(width: 5.w),
-        NameAndLastMsg(
-          name: name,
-          // lastMsg: lastMsg,
-        ),
-        const Spacer(),
-        const TimeAndNumberOfMsgs(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 14),
+      child: Row(
+        children: [
+          AvatarImage(
+            avatarLink: avatar,
+          ),
+          SizedBox(width: 10.w),
+          NameAndLastMsg(
+            lastMsg: lastMsg,
+            name: name,
+            // lastMsg: lastMsg,
+          ),
+          const Spacer(),
+          const TimeAndNumberOfMsgs(),
+        ],
+      ),
     );
   }
 }
