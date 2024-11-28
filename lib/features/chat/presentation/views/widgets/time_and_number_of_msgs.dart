@@ -1,11 +1,15 @@
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:chat_app/core/themes/styles.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class TimeAndNumberOfMsgs extends StatelessWidget {
+  final Timestamp lastMsgTime;
   const TimeAndNumberOfMsgs({
     super.key,
+    required this.lastMsgTime,
   });
 
   @override
@@ -13,13 +17,7 @@ class TimeAndNumberOfMsgs extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Row(
-          children: [
-            const Text("12:00"),
-            SizedBox(width: 5.w),
-            const Text("PM"),
-          ],
-        ),
+        Text(DateFormat('h:mm a').format(lastMsgTime.toDate())),
         SizedBox(height: 10.h),
         Container(
           width: 30.w,

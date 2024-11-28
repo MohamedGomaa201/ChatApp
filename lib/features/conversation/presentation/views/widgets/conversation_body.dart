@@ -10,7 +10,8 @@ class ConversationBody extends StatelessWidget {
   const ConversationBody(
       {super.key,
       required this.conversationContent,
-      required this.chatsInstance, required this.docID});
+      required this.chatsInstance,
+      required this.docID});
 
   @override
   Widget build(BuildContext context) {

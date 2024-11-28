@@ -26,9 +26,7 @@ class SendOrRecordWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(30.r),
         onTap: isEmpty
-            ? () {
-                // log(widget.chatsInstance.);
-              }
+            ? null
             : () {
                 final text = controller.text.trim();
                 if (text.isNotEmpty) {
@@ -37,7 +35,7 @@ class SendOrRecordWidget extends StatelessWidget {
                       'msgs': FieldValue.arrayUnion(
                         [
                           {
-                            'time': DateTime.now().toIso8601String(),
+                            'time': DateTime.now(),
                             'txt': text,
                           }
                         ],
