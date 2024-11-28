@@ -4,6 +4,7 @@ import 'dart:developer';
 
 import 'package:chat_app/features/auth/presentation/views/widgets/register_row.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/sign_in_button.dart';
+import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/features/auth/presentation/views/widgets/email_field.dart';
@@ -61,11 +62,17 @@ class _SignInBodyState extends State<SignInBody> {
                     passwordController: passwordController,
                     onSuccess: () async {
                       try {
-                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                        UserCredential user = await FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
                           email: emailController.text,
                           password: passwordController.text,
                         );
-                        Navigator.pushReplacementNamed(context, "/home");
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  HomeView(user: user.user!),
+                            ));
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -78,13 +85,12 @@ class _SignInBodyState extends State<SignInBody> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               backgroundColor: Colors.red,
-                              content: Text(
-                                  "Wrong password"),
+                              content: Text("Wrong password"),
                             ),
                           );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                             SnackBar(
+                            SnackBar(
                               content: Text(e.toString()),
                             ),
                           );
