@@ -1,9 +1,10 @@
 import 'package:chat_app/core/themes/styles.dart';
+import 'package:chat_app/features/profile/presentation/views/profile_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-PreferredSizeWidget customAppBar(onSelect) {
+PreferredSizeWidget customAppBar(onSelect, user) {
   return AppBar(
     title: Text(
       "WhatsUp",
@@ -21,6 +22,16 @@ PreferredSizeWidget customAppBar(onSelect) {
         itemBuilder: (context) {
           return [
             PopupMenuItem(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfileView(
+                      user: user,
+                    ),
+                  ),
+                );
+              },
               value: '/profile',
               child: Row(
                 children: [

@@ -1,17 +1,16 @@
-import 'package:chat_app/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AvatarImage extends StatelessWidget {
-  const AvatarImage({
-    super.key,
-  });
+  final String avatarLink;
+  const AvatarImage({super.key, required this.avatarLink});
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      AppImages.avatar,
-      width: 90.w,
+    return CircleAvatar(
+      backgroundColor: Colors.transparent,
+      backgroundImage: NetworkImage(avatarLink),
+      radius: 30.w,
     );
   }
 }
