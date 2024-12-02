@@ -8,6 +8,7 @@ class ConversationView extends StatelessWidget {
   final String name;
   final String image;
   final String docID;
+  final String mail;
   final List chatContent;
   final CollectionReference chatsInstance;
   const ConversationView({
@@ -17,6 +18,7 @@ class ConversationView extends StatelessWidget {
     required this.chatContent,
     required this.chatsInstance,
     required this.docID,
+    required this.mail,
   });
 
   @override
@@ -57,6 +59,7 @@ class ConversationView extends StatelessWidget {
         docID: docID,
         conversationContent: chatContent,
         chatsInstance: chatsInstance,
+        mail: mail,
       ),
     );
   }

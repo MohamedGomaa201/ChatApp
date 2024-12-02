@@ -21,14 +21,15 @@ class _HomeViewState extends State<HomeView> {
 
   var selectedItem = "";
 
-  final List<Widget> screens = [
-    const ChatBody(),
-    const StatusBody(),
-    const CallsBody(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> screens = [
+      ChatBody(
+        mail: widget.user.email!,
+      ),
+      const StatusBody(),
+      const CallsBody(),
+    ];
     return Scaffold(
       appBar: customAppBar(
         (value) {

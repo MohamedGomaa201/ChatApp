@@ -5,7 +5,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ChatBody extends StatelessWidget {
-  const ChatBody({super.key});
+  final String mail;
+  const ChatBody({super.key, required this.mail});
   @override
   Widget build(BuildContext context) {
     CollectionReference chatsInstance =
@@ -39,6 +40,7 @@ class ChatBody extends StatelessWidget {
                       chatContent: chatContent,
                       chatsInstance: chatsInstance,
                       docID: snapshot.data!.docs[index].id,
+                      mail: mail,
                     );
                   },
                 ),

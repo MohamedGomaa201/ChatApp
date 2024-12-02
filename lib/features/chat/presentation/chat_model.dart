@@ -1,11 +1,14 @@
 class ChatModel {
   final String name;
   final String image;
-  final String text;
-  ChatModel(this.text, this.name, this.image);
+  final List msgs;
+  ChatModel({required this.name, required this.image, required this.msgs});
 
   factory ChatModel.fromJson(jsonData) {
     return ChatModel(
-        jsonData["image"], jsonData["name"], jsonData["msgs"][0]["txt"]);
+      name: jsonData["name"],
+      image: jsonData["image"],
+      msgs: jsonData["msgs"],
+    );
   }
 }

@@ -9,12 +9,13 @@ class SendOrRecordWidget extends StatelessWidget {
     super.key,
     required this.isEmpty,
     required this.controller,
-    required this.widget,
+    required this.widget, required this.mail,
   });
 
   final bool isEmpty;
   final TextEditingController controller;
   final TextingRow widget;
+  final String mail;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class SendOrRecordWidget extends StatelessWidget {
                           {
                             'time': DateTime.now(),
                             'txt': text,
+                            'id': mail,
                           }
                         ],
                       ),
