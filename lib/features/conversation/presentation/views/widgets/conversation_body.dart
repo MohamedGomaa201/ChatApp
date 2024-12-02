@@ -7,22 +7,28 @@ class ConversationBody extends StatelessWidget {
   final List conversationContent;
   final CollectionReference chatsInstance;
   final String docID;
+  final String mail;
   const ConversationBody(
       {super.key,
       required this.conversationContent,
       required this.chatsInstance,
-      required this.docID});
+      required this.docID,
+      required this.mail});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
-          child: MessageBubble(conversationContent: conversationContent),
+          child: MessageBubble(
+            conversationContent: conversationContent,
+            mail: mail,
+          ),
         ),
         TextingRow(
           docID: docID,
           chatsInstance: chatsInstance,
+          mail: mail,
         ),
       ],
     );

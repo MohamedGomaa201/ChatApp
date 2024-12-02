@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 class TextingRow extends StatefulWidget {
   final CollectionReference chatsInstance;
   final String docID;
+  final String mail;
   const TextingRow({
     super.key,
     required this.chatsInstance,
     required this.docID,
+    required this.mail,
   });
 
   @override
@@ -40,6 +42,7 @@ class _TextingRowState extends State<TextingRow> {
           isEmpty: isEmpty,
           controller: controller,
           widget: widget,
+          mail: widget.mail,
         ),
       ],
     );

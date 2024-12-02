@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatRow extends StatelessWidget {
   final String name;
+  final String mail;
   final String lastMsg;
   final String avatar;
   final Timestamp lastMsgTime;
@@ -22,7 +23,7 @@ class ChatRow extends StatelessWidget {
     required this.lastMsgTime,
     required this.chatContent,
     required this.chatsInstance,
-    required this.docID,
+    required this.docID, required this.mail,
   });
 
   @override
@@ -38,6 +39,7 @@ class ChatRow extends StatelessWidget {
               chatContent: chatContent,
               chatsInstance: chatsInstance,
               docID: docID,
+              mail: mail,
             ),
           ),
         );
