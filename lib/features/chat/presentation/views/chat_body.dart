@@ -7,20 +7,22 @@ import 'package:flutter/material.dart';
 class ChatBody extends StatelessWidget {
   final String mail;
   const ChatBody({super.key, required this.mail});
+
   @override
   Widget build(BuildContext context) {
     CollectionReference chatsInstance =
         FirebaseFirestore.instance.collection('chats');
+
     return StreamBuilder<QuerySnapshot>(
-      stream: chatsInstance.snapshots(),
+      stream: chatsInstance
+          .orderBy('lastMesaageTime', descending: true)
+          .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          List<ChatModel> chats = [];
-          for (var i = 0; i < snapshot.data!.docs.length; i++) {
-            chats.add(
-              ChatModel.fromJson(snapshot.data!.docs[i]),
-            );
-          }
+          List<ChatModel> chats = snapshot.data!.docs
+              .map((doc) => ChatModel.fromJson(doc))
+              .toList();
+
           return Column(
             children: [
               const Divider(),
@@ -29,9 +31,10 @@ class ChatBody extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: chats.length,
                   itemBuilder: (context, index) {
-                    final name = snapshot.data!.docs[index]["name"];
-                    final avatar = snapshot.data!.docs[index]["image"];
-                    final List chatContent = snapshot.data!.docs[index]["msgs"];
+                    final chatDoc = snapshot.data!.docs[index];
+                    final name = chatDoc["name"];
+                    final avatar = chatDoc["image"];
+                    final List chatContent = chatDoc["msgs"];
                     return ChatRow(
                       name: name,
                       avatar: avatar,
@@ -39,13 +42,17 @@ class ChatBody extends StatelessWidget {
                       lastMsgTime: chatContent.last["time"],
                       chatContent: chatContent,
                       chatsInstance: chatsInstance,
-                      docID: snapshot.data!.docs[index].id,
+                      docID: chatDoc.id,
                       mail: mail,
                     );
                   },
                 ),
               ),
             ],
+          );
+        } else if (snapshot.hasError) {
+          return const Center(
+            child: Text("Error loading chats"),
           );
         } else {
           return const Center(

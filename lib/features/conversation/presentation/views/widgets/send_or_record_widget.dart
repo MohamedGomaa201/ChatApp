@@ -42,6 +42,7 @@ class SendOrRecordWidget extends StatelessWidget {
                           }
                         ],
                       ),
+                      'lastMesaageTime' : DateTime.now(),
                     },
                   );
                   controller.clear();
