@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'message_bubble.dart';
+import 'message_bubble_builder.dart';
 import 'texting_row.dart';
 
 class ConversationBody extends StatelessWidget {
@@ -28,7 +28,7 @@ class ConversationBody extends StatelessWidget {
           return Column(
             children: [
               Expanded(
-                child: MessageBubble(
+                child: MessageBubbleBuilder(
                   conversationContent: chatContent,
                   mail: mail,
                 ),
