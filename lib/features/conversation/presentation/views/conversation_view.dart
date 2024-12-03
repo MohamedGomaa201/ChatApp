@@ -57,7 +57,6 @@ class ConversationView extends StatelessWidget {
       ),
       body: ConversationBody(
         docID: docID,
-        conversationContent: chatContent,
         chatsInstance: chatsInstance,
         mail: mail,
       ),
