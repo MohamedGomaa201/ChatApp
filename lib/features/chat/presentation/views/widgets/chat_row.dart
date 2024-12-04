@@ -57,7 +57,6 @@ class ChatRow extends StatelessWidget {
                 name: name,
               ),
             ),
-            // const Spacer(),
             TimeAndNumberOfMsgs(
               lastMsgTime: lastMsgTime,
             ),

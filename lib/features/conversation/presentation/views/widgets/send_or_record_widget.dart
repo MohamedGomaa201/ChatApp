@@ -9,7 +9,8 @@ class SendOrRecordWidget extends StatelessWidget {
     super.key,
     required this.isEmpty,
     required this.controller,
-    required this.widget, required this.mail,
+    required this.widget,
+    required this.mail,
   });
 
   final bool isEmpty;
@@ -31,19 +32,25 @@ class SendOrRecordWidget extends StatelessWidget {
             : () {
                 final text = controller.text.trim();
                 if (text.isNotEmpty) {
-                  widget.chatsInstance.doc(widget.docID).update(
+                  final userChatsRef = FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(mail)
+                      .collection('chats');
+
+                  userChatsRef.doc(widget.docID).set(
                     {
                       'msgs': FieldValue.arrayUnion(
                         [
                           {
-                            'time': DateTime.now(),
+                            'time': FieldValue.serverTimestamp(),
                             'txt': text,
                             'id': mail,
                           }
                         ],
                       ),
-                      'lastMesaageTime' : DateTime.now(),
+                      'lastMessageTime': FieldValue.serverTimestamp(),
                     },
+                    SetOptions(merge: true),
                   );
                   controller.clear();
                 }

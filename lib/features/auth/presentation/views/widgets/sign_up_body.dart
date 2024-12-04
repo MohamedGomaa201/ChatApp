@@ -74,10 +74,9 @@ class _SignUpBodyState extends State<SignUpBody> {
                           password: passwordController.text,
                         );
                         user.user!.updateDisplayName(nameController.text);
-
-                        CollectionReference usersInstance =
+                        CollectionReference usersRef =
                             FirebaseFirestore.instance.collection('users');
-                        usersInstance.add({
+                        await usersRef.doc(user.user!.email).set({
                           "name": nameController.text,
                           "mail": emailController.text,
                           "phone": phoneController.text,

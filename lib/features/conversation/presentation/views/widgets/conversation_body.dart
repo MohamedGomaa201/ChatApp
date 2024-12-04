@@ -17,8 +17,13 @@ class ConversationBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userChatsRef = FirebaseFirestore.instance
+        .collection('users')
+        .doc(mail)
+        .collection('chats');
+
     return StreamBuilder<DocumentSnapshot>(
-      stream: chatsInstance.doc(docID).snapshots(),
+      stream: userChatsRef.doc(docID).snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData && snapshot.data != null) {
           final conversationData =
@@ -35,7 +40,7 @@ class ConversationBody extends StatelessWidget {
               ),
               TextingRow(
                 docID: docID,
-                chatsInstance: chatsInstance,
+                chatsInstance: userChatsRef,
                 mail: mail,
               ),
             ],

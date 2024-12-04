@@ -10,56 +10,46 @@ class ChatBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference chatsInstance =
-        FirebaseFirestore.instance.collection('chats');
+    final String currentUserEmail = mail;
+    CollectionReference userChatsInstance = FirebaseFirestore.instance
+        .collection('users')
+        .doc(currentUserEmail)
+        .collection('chats');
 
     return StreamBuilder<QuerySnapshot>(
-      stream: chatsInstance
-          .orderBy('lastMesaageTime', descending: true)
-          .snapshots(),
+      stream: userChatsInstance.orderBy('lastMesaageTime').snapshots(),
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+              child: CircularProgressIndicator(color: AppColors.primaryColor));
+        } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+          return const Center(child: Text('No chats available'));
+        } else if (snapshot.hasData) {
           List<ChatModel> chats = snapshot.data!.docs
               .map((doc) => ChatModel.fromJson(doc))
               .toList();
-
-          return Column(
-            children: [
-              const Divider(),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: chats.length,
-                  itemBuilder: (context, index) {
-                    final chatDoc = snapshot.data!.docs[index];
-                    final name = chatDoc["name"];
-                    final avatar = chatDoc["image"];
-                    final List chatContent = chatDoc["msgs"];
-                    return ChatRow(
-                      name: name,
-                      avatar: avatar,
-                      lastMsg: chatContent.last["txt"],
-                      lastMsgTime: chatContent.last["time"],
-                      chatContent: chatContent,
-                      chatsInstance: chatsInstance,
-                      docID: chatDoc.id,
-                      mail: mail,
-                    );
-                  },
-                ),
-              ),
-            ],
-          );
-        } else if (snapshot.hasError) {
-          return const Center(
-            child: Text("Error loading chats"),
+          return ListView.builder(
+            shrinkWrap: true,
+            itemCount: chats.length,
+            itemBuilder: (context, index) {
+              final chatDoc = snapshot.data!.docs[index];
+              final name = chatDoc['name'];
+              final avatar = chatDoc['image'];
+              final List chatContent = chatDoc['msgs'];
+              return ChatRow(
+                name: name,
+                avatar: avatar,
+                lastMsg: chatContent.last['txt'],
+                lastMsgTime: chatContent.last['time'],
+                chatContent: chatContent,
+                chatsInstance: userChatsInstance,
+                docID: chatDoc.id,
+                mail: mail,
+              );
+            },
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.primaryColor,
-            ),
-          );
+          return const Center(child: Text('Something went wrong'));
         }
       },
     );
