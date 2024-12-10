@@ -1,11 +1,12 @@
-import 'package:chat_app/core/constants/app_images.dart';
 import 'package:chat_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EditUserImageStack extends StatelessWidget {
+  final String image;
   const EditUserImageStack({
     super.key,
+    required this.image,
   });
 
   @override
@@ -14,7 +15,7 @@ class EditUserImageStack extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 75.r,
-          foregroundImage: const AssetImage(AppImages.userImage),
+          foregroundImage: NetworkImage(image),
         ),
         Positioned(
           bottom: 0,

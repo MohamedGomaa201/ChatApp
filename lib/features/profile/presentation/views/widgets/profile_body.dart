@@ -27,7 +27,9 @@ class ProfileBody extends StatelessWidget {
               children: [
                 const Divider(),
                 SizedBox(height: 15.h),
-                const EditUserImageStack(),
+                EditUserImageStack(
+                  image: userData["image"],
+                ),
                 SizedBox(height: 15.h),
                 const Divider(),
                 SizedBox(height: 30.h),
